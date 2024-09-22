@@ -1,0 +1,33 @@
+integer sqr{integer x} [
+  return x * x.
+]
+
+integer sqrt{integer x} [
+  integer max_int_sqrt.
+  integer start.
+  integer end.
+  integer mid.
+  integer sq.
+
+  max_int_sqrt = 46341.
+  start = 0.
+  end = max_int_sqrt.
+
+  while (start <= end) [
+    if (sq = sqr(mid = (start + end) / 2)) == x [
+      return mid.
+    ] else [
+      if sq > x [
+        end = mid - 1.
+      ] else [
+        start = mid + 1.
+      ]
+    ]
+  ]
+  if sq > x [return mid - 1.]
+  else [return mid.]
+]
+void main{} [
+    write << sqrt(22).
+    write << "\n".
+]
